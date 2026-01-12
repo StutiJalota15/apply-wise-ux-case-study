@@ -29,7 +29,7 @@ body{
   color: var(--text);
   min-height:100vh;
 
-  /* ✅ same as CareLink */
+  /* ✅ CareLink background */
   background:
     radial-gradient(1200px 900px at 22% 24%, rgba(131,153,162,.50), rgba(0,0,0,0) 62%),
     radial-gradient(1100px 850px at 82% 30%, rgba(238,242,243,.85), rgba(0,0,0,0) 58%),
@@ -42,7 +42,6 @@ body{
 
 a{ color:inherit; text-decoration:none; }
 img{ max-width:100%; display:block; }
-.media-img{ width:100%; height:auto; display:block; }
 
 .skip{
   position:absolute; left:-9999px; top:auto;
@@ -57,7 +56,7 @@ img{ max-width:100%; display:block; }
 }
 
 /* =========================
-   NAV
+   NAV (ApplyWise HTML)
    ========================= */
 .nav{
   position:sticky;
@@ -90,7 +89,6 @@ img{ max-width:100%; display:block; }
   gap: 14px;
   align-items:center;
   flex-wrap:wrap;
-  justify-content:flex-end;
 }
 
 .nav-links a{
@@ -105,22 +103,43 @@ img{ max-width:100%; display:block; }
   color: rgba(20,22,26,.92);
 }
 
-/* ✅ active section highlight (used by scripts.js) */
-.nav-links a.pill{
+/* active section highlight (script.js) */
+.nav-links a.is-active{
   background: rgba(255,255,255,.38);
   border: 1px solid rgba(255,255,255,.55);
   color: rgba(20,22,26,.92);
 }
 
+.nav-cta{ display:flex; gap: 10px; flex-wrap: wrap; }
+
 /* =========================
-   HERO
+   CONTAINER + TYPOGRAPHY
    ========================= */
-.hero{
-  padding: 26px 0 0;
-  background: transparent;
+.container{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
-.container{ max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+h1{
+  margin: 14px 0 10px;
+  font-size: 56px;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+h2{
+  margin:0 0 10px;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+}
+
+.lead, .sub{
+  margin:0;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 72ch;
+}
 
 .kicker{
   display:inline-block;
@@ -135,26 +154,36 @@ img{ max-width:100%; display:block; }
   width: fit-content;
 }
 
-h1{
-  margin: 14px 0 10px;
-  font-size: 56px;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+/* =========================
+   BUTTONS (ApplyWise HTML uses .btn + .btn-ghost)
+   ========================= */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.62);
+  background: rgba(255,255,255,.34);
+  color: rgba(20,22,26,.92);
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform .2s ease, background .2s ease;
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn:active{ transform: translateY(0px); }
+
+.btn-ghost{
+  background: rgba(255,255,255,.20);
+  border-color: rgba(255,255,255,.52);
 }
 
-.grad{
-  background: linear-gradient(90deg, rgba(67,108,137,.95), rgba(139,44,64,.95));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color: transparent;
-}
-
-.lead{
-  margin:0;
-  font-size: 18px;
-  line-height: 1.55;
-  color: var(--muted);
-  max-width: 72ch;
+/* =========================
+   HERO (ApplyWise HTML uses .hero)
+   ========================= */
+.hero{
+  padding: 26px 0 0;
+  background: transparent;
 }
 
 .meta{
@@ -180,30 +209,8 @@ h1{
   flex-wrap:wrap;
 }
 
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.62);
-  background: rgba(255,255,255,.34);
-  color: rgba(20,22,26,.92);
-  font-weight: 600;
-  font-size: 14px;
-  transition: transform .2s ease, background .2s ease;
-}
-
-.btn:hover{ transform: translateY(-1px); }
-.btn:active{ transform: translateY(0px); }
-
-.btn-ghost{
-  background: rgba(255,255,255,.20);
-  border-color: rgba(255,255,255,.52);
-}
-
 /* =========================
-   SECTIONS (✅ smooth blending)
+   SECTIONS (✅ smooth — no harsh lines)
    ========================= */
 .section{
   position: relative;
@@ -211,12 +218,12 @@ h1{
   background: transparent;
 }
 
-/* ✅ instead of borders/lines, we use a soft glass wash */
+/* soft glass wash section (no borders) */
 .section.alt{
   background: rgba(255,255,255,.06);
 }
 
-/* ✅ smooth blend top & bottom (NO visible line) */
+/* smooth blend into/out of alt sections (no visible “line”) */
 .section.alt::before,
 .section.alt::after{
   content:"";
@@ -242,19 +249,6 @@ h1{
   );
 }
 
-h2{
-  margin:0 0 10px;
-  font-size: 26px;
-  letter-spacing: -0.02em;
-}
-
-.sub{
-  margin:0 0 18px;
-  color: var(--muted);
-  max-width: 72ch;
-  line-height: 1.6;
-}
-
 /* =========================
    GRIDS
    ========================= */
@@ -274,7 +268,7 @@ h2{
 }
 
 /* =========================
-   CARDS (✅ remove harsh edges)
+   CARDS (glass)
    ========================= */
 .card{
   background: var(--glass);
@@ -283,14 +277,11 @@ h2{
   padding: 16px;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-
-  /* softer shadow (hard shadow = visible bands) */
   box-shadow: 0 12px 35px rgba(0,0,0,.10);
 }
 
 .card h3{ margin:0 0 8px; font-size: 16px; }
 .card p{ margin:0; color: var(--muted); line-height: 1.6; }
-.card ul{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.7; }
 
 .list{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
 .list li{ margin: 6px 0; }
@@ -324,9 +315,10 @@ h2{
 }
 
 /* =========================
-   GALLERY
+   GALLERY (Key Screens)
    ========================= */
 .gallery{
+  margin-top: 16px;
   display:grid;
   grid-template-columns: repeat(2, minmax(0,1fr));
   gap: 14px;
@@ -360,7 +352,7 @@ h2{
    ========================= */
 .footer{
   padding: 28px 0;
-  margin-top: 20px;
+  margin-top: 24px;
   background: transparent;
 }
 

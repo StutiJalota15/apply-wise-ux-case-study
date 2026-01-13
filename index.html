@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ApplyWise — UX Case Study</title>
-  <meta name="description" content="ApplyWise UX Case Study — an emotion-aware career management platform (B2B2C)" />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="description" content="ApplyWise UX Case Study — Job application tracker with system-thinking (B2B2C)" />
+  <link rel="stylesheet" href="./styles.css?v=applywise3" />
 </head>
 
 <body>
@@ -20,11 +20,12 @@
         <a href="#system">System</a>
         <a href="#process">Process</a>
         <a href="#decisions">Decisions</a>
+        <a href="#screens">Key screens</a>
         <a href="#impact">Impact</a>
       </nav>
       <div class="nav-cta">
         <a class="btn btn-ghost" href="https://www.figma.com/" target="_blank" rel="noreferrer">Prototype</a>
-        <a class="btn" href="#system">System View</a>
+        <a class="btn" href="#screens">View screens</a>
       </div>
     </div>
   </header>
@@ -34,21 +35,21 @@
     <section class="hero">
       <div class="container">
         <p class="kicker">ApplyWise • UX Case Study</p>
-        <h1>Designing an emotion-aware <span class="grad">career management platform</span> (B2B2C)</h1>
+        <h1>Designing a job-search <span class="grad">career operating system</span> (B2B2C)</h1>
         <p class="lead">
           ApplyWise helps early-career job seekers track applications, prepare for interviews, and recover constructively
           from rejection — with a system foundation that can scale to career services and hiring ecosystems.
         </p>
 
         <div class="meta">
-          <div class="pill"><strong>Role:</strong> Product Designer (UX, Systems & Strategy)</div>
+          <div class="pill"><strong>Role:</strong> UX / Product Design</div>
           <div class="pill"><strong>Platform:</strong> Responsive Web App</div>
-          <div class="pill"><strong>Tools:</strong> Figma • UX Pilot • Accessibility</div>
+          <div class="pill"><strong>Tools:</strong> Figma</div>
         </div>
 
         <div class="hero-cta">
           <a class="btn" href="#overview">Read the case study</a>
-          <a class="btn btn-ghost" href="#screens">Key screens</a>
+          <a class="btn btn-ghost" href="#screens">Jump to carousel</a>
         </div>
       </div>
     </section>
@@ -58,11 +59,11 @@
       <div class="container grid2">
         <div>
           <h2>Overview</h2>
-          <p>
-            Students and early-career professionals apply to dozens of roles across job boards, email threads, notes, and calendars.
-            This fragmentation causes missed follow-ups, scattered interview prep, and emotional burnout after rejection.
+          <p class="sub">
+            Job seekers apply to dozens of roles across job boards, emails, and notes. This fragmentation causes missed follow-ups,
+            scattered interview prep, and emotional burnout after rejection.
           </p>
-          <p>
+          <p class="sub">
             ApplyWise reframes the job search as a <strong>pipeline + support system</strong> — optimizing for clarity, emotional safety,
             and long-term progress.
           </p>
@@ -72,9 +73,8 @@
           <ul class="list">
             <li>Kanban pipeline dashboard for instant status clarity</li>
             <li>Minimal “Add application” flow to reduce friction</li>
-            <li>Interview scheduling + prep notes tied to each application</li>
+            <li>Application detail with timeline, notes, and actions</li>
             <li>Rejection reflection loop to prevent drop-off</li>
-            <li>Resources that support key moments (interview, follow-up, rejection)</li>
           </ul>
         </div>
       </div>
@@ -87,15 +87,15 @@
         <div class="grid3">
           <div class="card">
             <h3>Human</h3>
-            <p>Overwhelm from tracking many applications, deadlines, and prep notes across tools — plus emotional fatigue from rejection.</p>
+            <p>Overwhelm tracking many applications + emotional fatigue from rejection.</p>
           </div>
           <div class="card">
             <h3>System</h3>
-            <p>Job boards focus on listings, ATS tools serve recruiters, and spreadsheets are manual — leaving job seekers unsupported.</p>
+            <p>Job boards focus on listings; ATS serves recruiters; spreadsheets are manual.</p>
           </div>
           <div class="card">
             <h3>Opportunity</h3>
-            <p>Design a pipeline that reduces cognitive load, supports emotional recovery, and can scale into a career services platform.</p>
+            <p>Design a pipeline that reduces cognitive load and supports resilience.</p>
           </div>
         </div>
       </div>
@@ -111,24 +111,10 @@
         </p>
 
         <figure class="figure">
-          <img src="./assets/diagrams/system-layer.png" alt="ApplyWise platform layers: Job Seeker layer, Career Services layer, Hiring Ecosystem layer" />
+          <!-- ✅ your actual file name -->
+          <img src="./assets/diagrams/system-layer.png" alt="ApplyWise platform layers: Job Seeker, Career Services, Hiring Ecosystem" />
           <figcaption>Platform layers: B2C → B2B → Hiring ecosystem (future integration).</figcaption>
         </figure>
-
-        <div class="grid3">
-          <div class="card">
-            <h3>Job Seeker layer</h3>
-            <p>Pipeline tracking, calendar, interview prep, reflection — a personal “career OS” designed for clarity and emotional safety.</p>
-          </div>
-          <div class="card">
-            <h3>Career Services layer (future)</h3>
-            <p>Opt-in visibility for advisors: bottlenecks, cohort insights, timely guidance — enabling scalable support.</p>
-          </div>
-          <div class="card">
-            <h3>Hiring ecosystem layer (future)</h3>
-            <p>Conceptual integration with ATS stages, interview scheduling, and feedback loops — reducing fragmentation.</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -151,7 +137,7 @@
             <ul class="list">
               <li>Concept prototype (no backend)</li>
               <li>No time for full usability testing</li>
-              <li>Design decisions grounded in common job-seeker behavior patterns</li>
+              <li>Design decisions grounded in common job-seeker patterns</li>
             </ul>
           </div>
         </div>
@@ -173,7 +159,7 @@
           </div>
           <div class="card">
             <h3>Calendar tied to status</h3>
-            <p>Interviews and follow-ups create anxiety when disconnected. The pipeline + time view reduces misses.</p>
+            <p>Interviews and follow-ups create anxiety when disconnected. Pipeline + time view reduces misses.</p>
           </div>
           <div class="card">
             <h3>Minimal “Add application” form</h3>
@@ -183,29 +169,57 @@
       </div>
     </section>
 
-    <!-- SCREENS -->
+    <!-- KEY SCREENS (CAROUSEL) -->
     <section id="screens" class="section alt">
       <div class="container">
         <h2>Key screens</h2>
-        <p class="sub">Replace image filenames with your exported PNGs from Figma.</p>
+        <p class="sub">Swipe or use arrows to browse. Each image is cropped to fit the card cleanly.</p>
 
-        <div class="gallery">
-          <figure class="shot">
-            <img src="./assets/screens/dashboard.png" alt="ApplyWise dashboard" />
-            <figcaption>Dashboard — Kanban pipeline + summary metrics</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="./assets/screens/add-application.png" alt="Add new application form" />
-            <figcaption>Add Application — minimal, fast entry</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="./assets/screens/application-detail.png" alt="Application detail view" />
-            <figcaption>Application Detail — timeline, notes, actions</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="./assets/screens/rejection.png" alt="Rejection reflection screen" />
-            <figcaption>Rejection — reflection loop + gentle next steps</figcaption>
-          </figure>
+        <div class="carousel" data-carousel>
+          <button class="car-btn car-prev" type="button" aria-label="Previous screen">‹</button>
+
+          <div class="car-viewport" tabindex="0">
+            <!-- Slide 1 -->
+            <figure class="car-slide">
+              <div class="img-frame">
+                <img src="./assets/screens/dashboard.png" alt="Dashboard — Kanban pipeline + summary metrics" />
+              </div>
+              <figcaption>Dashboard — Kanban pipeline + summary metrics</figcaption>
+            </figure>
+
+            <!-- Slide 2 -->
+            <figure class="car-slide">
+              <div class="img-frame">
+                <img src="./assets/screens/add-application.png" alt="Add Application — minimal, fast entry" />
+              </div>
+              <figcaption>Add Application — minimal, fast entry</figcaption>
+            </figure>
+
+            <!-- Slide 3 -->
+            <figure class="car-slide">
+              <div class="img-frame">
+                <img src="./assets/screens/application-detail.png" alt="Application Detail — timeline, notes, actions" />
+              </div>
+              <figcaption>Application Detail — timeline, notes, actions</figcaption>
+            </figure>
+
+            <!-- Slide 4 -->
+            <figure class="car-slide">
+              <div class="img-frame">
+                <img src="./assets/screens/rejection.png" alt="Rejection — reflection loop + gentle next steps" />
+              </div>
+              <figcaption>Rejection — reflection loop + gentle next steps</figcaption>
+            </figure>
+          </div>
+
+          <button class="car-btn car-next" type="button" aria-label="Next screen">›</button>
+        </div>
+
+        <div class="car-dots" aria-label="Carousel pagination">
+          <button class="dot is-active" type="button" aria-label="Go to slide 1"></button>
+          <button class="dot" type="button" aria-label="Go to slide 2"></button>
+          <button class="dot" type="button" aria-label="Go to slide 3"></button>
+          <button class="dot" type="button" aria-label="Go to slide 4"></button>
         </div>
       </div>
     </section>
@@ -226,8 +240,8 @@
           <div class="card">
             <h3>What I learned</h3>
             <ul class="list">
-              <li>In stressful journeys, emotional safety is a UX requirement</li>
-              <li>Systems thinking turns “screens” into a product narrative</li>
+              <li>Emotional safety is a UX requirement in stressful journeys</li>
+              <li>Systems thinking turns screens into a product narrative</li>
               <li>Clarity beats feature volume for sustained behavior</li>
             </ul>
           </div>
@@ -236,14 +250,13 @@
     </section>
 
     <footer class="footer">
-      <div class="container foot">
+      <div class="foot">
         <span>© <span id="year"></span> Stuti Jalota</span>
         <span class="muted">ApplyWise — UX Case Study</span>
       </div>
     </footer>
   </main>
 
-  <script src="./script.js"></script>
+  <script src="./script.js?v=applywise3"></script>
 </body>
 </html>
-

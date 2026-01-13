@@ -29,7 +29,6 @@ body{
   color: var(--text);
   min-height:100vh;
 
-  /* ✅ CareLink background */
   background:
     radial-gradient(1200px 900px at 22% 24%, rgba(131,153,162,.50), rgba(0,0,0,0) 62%),
     radial-gradient(1100px 850px at 82% 30%, rgba(238,242,243,.85), rgba(0,0,0,0) 58%),
@@ -55,9 +54,7 @@ img{ max-width:100%; display:block; }
   border: 1px solid rgba(0,0,0,.08);
 }
 
-/* =========================
-   NAV (ApplyWise HTML)
-   ========================= */
+/* NAV */
 .nav{
   position:sticky;
   top:0;
@@ -103,7 +100,7 @@ img{ max-width:100%; display:block; }
   color: rgba(20,22,26,.92);
 }
 
-/* active section highlight (script.js) */
+/* Active nav link */
 .nav-links a.is-active{
   background: rgba(255,255,255,.38);
   border: 1px solid rgba(255,255,255,.55);
@@ -112,34 +109,15 @@ img{ max-width:100%; display:block; }
 
 .nav-cta{ display:flex; gap: 10px; flex-wrap: wrap; }
 
-/* =========================
-   CONTAINER + TYPOGRAPHY
-   ========================= */
+/* PAGE */
 .container{
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 16px;
 }
 
-h1{
-  margin: 14px 0 10px;
-  font-size: 56px;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
-}
-
-h2{
-  margin:0 0 10px;
-  font-size: 26px;
-  letter-spacing: -0.02em;
-}
-
-.lead, .sub{
-  margin:0;
-  color: var(--muted);
-  line-height: 1.6;
-  max-width: 72ch;
-}
+/* HERO */
+.hero{ padding: 26px 0 0; background: transparent; }
 
 .kicker{
   display:inline-block;
@@ -154,9 +132,47 @@ h2{
   width: fit-content;
 }
 
-/* =========================
-   BUTTONS (ApplyWise HTML uses .btn + .btn-ghost)
-   ========================= */
+h1{
+  margin: 14px 0 10px;
+  font-size: 56px;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.grad{
+  background: linear-gradient(90deg, rgba(67,108,137,.95), rgba(139,44,64,.95));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color: transparent;
+}
+
+.lead{
+  margin:0;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 72ch;
+}
+
+.meta{
+  margin-top: 18px;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pill{
+  background: rgba(255,255,255,.38);
+  border: 1px solid rgba(255,255,255,.60);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-size: 13px;
+  color: rgba(20,22,26,.86);
+}
+
+.hero-cta{ margin-top: 16px; display:flex; gap: 10px; flex-wrap:wrap; }
+
+/* BUTTONS */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -178,52 +194,17 @@ h2{
   border-color: rgba(255,255,255,.52);
 }
 
-/* =========================
-   HERO (ApplyWise HTML uses .hero)
-   ========================= */
-.hero{
-  padding: 26px 0 0;
-  background: transparent;
-}
-
-.meta{
-  margin-top: 18px;
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.pill{
-  background: rgba(255,255,255,.38);
-  border: 1px solid rgba(255,255,255,.60);
-  border-radius: 999px;
-  padding: 8px 10px;
-  font-size: 13px;
-  color: rgba(20,22,26,.86);
-}
-
-.hero-cta{
-  margin-top: 16px;
-  display:flex;
-  gap: 10px;
-  flex-wrap:wrap;
-}
-
-/* =========================
-   SECTIONS (✅ smooth — no harsh lines)
-   ========================= */
+/* SECTIONS */
 .section{
   position: relative;
   padding: 76px 0;
   background: transparent;
 }
 
-/* soft glass wash section (no borders) */
-.section.alt{
-  background: rgba(255,255,255,.06);
-}
+/* soft glass wash */
+.section.alt{ background: rgba(255,255,255,.06); }
 
-/* smooth blend into/out of alt sections (no visible “line”) */
+/* smooth blend (no harsh lines) */
 .section.alt::before,
 .section.alt::after{
   content:"";
@@ -232,26 +213,29 @@ h2{
   height: 90px;
   pointer-events:none;
 }
-
 .section.alt::before{
   top:-90px;
-  background: linear-gradient(to bottom,
-    rgba(255,255,255,0),
-    rgba(255,255,255,.06)
-  );
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.06));
 }
-
 .section.alt::after{
   bottom:-90px;
-  background: linear-gradient(to top,
-    rgba(255,255,255,0),
-    rgba(255,255,255,.06)
-  );
+  background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,.06));
 }
 
-/* =========================
-   GRIDS
-   ========================= */
+h2{
+  margin:0 0 10px;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+}
+
+.sub{
+  margin:0 0 18px;
+  color: var(--muted);
+  max-width: 72ch;
+  line-height: 1.6;
+}
+
+/* GRIDS */
 .grid2{
   margin-top: 16px;
   display:grid;
@@ -267,9 +251,7 @@ h2{
   gap: 14px;
 }
 
-/* =========================
-   CARDS (glass)
-   ========================= */
+/* CARDS */
 .card{
   background: var(--glass);
   border: 1px solid rgba(255,255,255,.58);
@@ -283,12 +265,10 @@ h2{
 .card h3{ margin:0 0 8px; font-size: 16px; }
 .card p{ margin:0; color: var(--muted); line-height: 1.6; }
 
-.list{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
+.list{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.7; }
 .list li{ margin: 6px 0; }
 
-/* =========================
-   FIGURE (diagram)
-   ========================= */
+/* FIGURE (diagram) */
 .figure{
   margin: 18px 0 22px;
   background: rgba(255,255,255,.30);
@@ -315,46 +295,115 @@ h2{
 }
 
 /* =========================
-   GALLERY (Key Screens)
+   ✅ CAROUSEL
    ========================= */
-.gallery{
-  margin-top: 16px;
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
+.carousel{
+  position: relative;
+  margin-top: 14px;
+}
+
+.car-viewport{
+  display:flex;
   gap: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  padding: 10px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.46);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
-.shot{
+/* each slide is full width */
+.car-slide{
+  flex: 0 0 100%;
+  scroll-snap-align: start;
   margin: 0;
-  background: rgba(255,255,255,.28);
-  border: 1px solid rgba(255,255,255,.58);
-  border-radius: var(--radius);
-  overflow: hidden;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 12px 35px rgba(0,0,0,.10);
 }
 
-.shot img{
+/* ✅ image card frame (forces image to FIT the card) */
+.img-frame{
   width: 100%;
-  height: auto;
-  display:block;
+  aspect-ratio: 16 / 10;          /* keeps everything consistent */
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255,255,255,.22);
+  border: 1px solid rgba(255,255,255,.55);
 }
 
-.shot figcaption{
-  padding: 10px 12px;
+/* ✅ this is the key fix: image fills the frame */
+.img-frame img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;               /* fill the card */
+  object-position: center;
+}
+
+/* captions */
+.car-slide figcaption{
+  margin-top: 10px;
+  padding: 0 6px 4px;
   color: rgba(20,22,26,.72);
   font-size: 13px;
 }
 
-/* =========================
-   FOOTER
-   ========================= */
-.footer{
-  padding: 28px 0;
-  margin-top: 24px;
-  background: transparent;
+/* arrows */
+.car-btn{
+  position:absolute;
+  top: 50%;
+  transform: translateY(-60%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.60);
+  background: rgba(255,255,255,.42);
+  color: rgba(20,22,26,.90);
+  font-size: 26px;
+  line-height: 1;
+  display:grid;
+  place-items:center;
+  cursor: pointer;
+  box-shadow: 0 12px 35px rgba(0,0,0,.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
+
+.car-btn:hover{ transform: translateY(-60%) scale(1.03); }
+.car-btn:active{ transform: translateY(-60%) scale(0.98); }
+
+.car-prev{ left: -8px; }
+.car-next{ right: -8px; }
+
+/* dots */
+.car-dots{
+  display:flex;
+  justify-content:center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.70);
+  background: rgba(255,255,255,.40);
+  cursor: pointer;
+  padding: 0;
+}
+
+.dot.is-active{
+  background: rgba(20,22,26,.85);
+  border-color: rgba(20,22,26,.25);
+}
+
+/* FOOTER */
+.footer{ padding: 28px 0; margin-top: 24px; background: transparent; }
 
 .foot{
   max-width: var(--max);
@@ -369,13 +418,14 @@ h2{
 
 .muted{ color: rgba(20,22,26,.55); }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+/* RESPONSIVE */
 @media (max-width: 900px){
   h1{ font-size: 44px; }
   .grid2{ grid-template-columns: 1fr; }
   .grid3{ grid-template-columns: 1fr; }
-  .gallery{ grid-template-columns: 1fr; }
   body{ background-attachment: scroll; }
+
+  /* arrows tuck in on mobile */
+  .car-prev{ left: 6px; }
+  .car-next{ right: 6px; }
 }

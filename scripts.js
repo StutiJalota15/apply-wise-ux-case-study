@@ -20,14 +20,72 @@
     links.forEach(a => {
       const isActive = a.getAttribute("href") === `#${activeId}`;
       a.classList.toggle("is-active", isActive);
-      // ✅ remove any old inline styles that may still exist from previous versions
-      if (a.style) {
-        a.style.color = "";
-        a.style.background = "";
-      }
+      a.style.color = "";
+      a.style.background = "";
     });
   };
 
   window.addEventListener("scroll", setActive, { passive: true });
   setActive();
+
+  // =========================
+  // Carousel (Key screens)
+  // =========================
+  const carousel = document.querySelector("[data-carousel]");
+  if (!carousel) return;
+
+  const viewport = carousel.querySelector(".car-viewport");
+  const slides = [...carousel.querySelectorAll(".car-slide")];
+  const prevBtn = carousel.querySelector(".car-prev");
+  const nextBtn = carousel.querySelector(".car-next");
+  const dotsWrap = document.querySelector(".car-dots");
+  const dots = dotsWrap ? [...dotsWrap.querySelectorAll(".dot")] : [];
+
+  const slideWidth = () => {
+    const first = slides[0];
+    if (!first) return 0;
+    // slide width includes gap because we scroll by viewport width
+    return viewport.clientWidth;
+  };
+
+  const goTo = (i) => {
+    const idx = Math.max(0, Math.min(i, slides.length - 1));
+    viewport.scrollTo({ left: idx * slideWidth(), behavior: "smooth" });
+  };
+
+  const setDot = (idx) => {
+    if (!dots.length) return;
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === idx));
+  };
+
+  const currentIndex = () => {
+    const w = slideWidth() || 1;
+    return Math.round(viewport.scrollLeft / w);
+  };
+
+  prevBtn?.addEventListener("click", () => goTo(currentIndex() - 1));
+  nextBtn?.addEventListener("click", () => goTo(currentIndex() + 1));
+
+  dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+
+  // Update dots on scroll end-ish
+  let t = null;
+  viewport.addEventListener("scroll", () => {
+    window.clearTimeout(t);
+    t = window.setTimeout(() => setDot(currentIndex()), 80);
+  }, { passive: true });
+
+  // Keyboard support
+  viewport.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") goTo(currentIndex() - 1);
+    if (e.key === "ArrowRight") goTo(currentIndex() + 1);
+  });
+
+  // Init
+  setDot(0);
+
+  // Re-sync on resize
+  window.addEventListener("resize", () => {
+    setDot(currentIndex());
+  }, { passive: true });
 })();

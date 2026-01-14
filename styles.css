@@ -304,7 +304,7 @@ h2{
 }
 
 /* =========================================================
-   CAROUSEL (updated: full image visible + buttons both sides)
+   CAROUSEL (FULL image visible + arrows both sides)
    ========================================================= */
 .carousel{ position: relative; margin-top: 14px; }
 
@@ -317,20 +317,20 @@ h2{
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 
-  /* ✅ space so buttons don't sit on the image edge */
+  /* ✅ space for arrows */
   padding: 14px 64px;
+
   border-radius: 22px;
   background: rgba(255,255,255,.16);
   border: 1px solid rgba(255,255,255,.46);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
-  position: relative;
+  scrollbar-width: none;
+  scroll-padding-left: 64px;
+  scroll-padding-right: 64px;
 }
-
-/* ✅ hide scrollbar (so it looks like a real carousel) */
-.car-viewport{ scrollbar-width: none; }
-.car-viewport::-webkit-scrollbar{ display: none; }
+.car-viewport::-webkit-scrollbar{ display:none; }
 
 .car-slide{
   flex: 0 0 100%;
@@ -338,23 +338,25 @@ h2{
   margin: 0;
 }
 
-/* ✅ SHOW FULL IMAGE (no cropping) */
+/* ✅ frame */
 .img-frame{
   width: 100%;
-  aspect-ratio: 16 / 9;              /* better for UI screens */
+  aspect-ratio: 16 / 9;
   border-radius: 18px;
   overflow: hidden;
-  background: rgba(255,255,255,.22);
+  background: rgba(255,255,255,.18);
   border: 1px solid rgba(255,255,255,.55);
-  position: relative;
+  display:grid;
+  place-items:center;
 }
 
+/* ✅ FULL image visible (no crop) */
 .img-frame img{
   width: 100%;
   height: 100%;
-  object-fit: contain;               /* KEY FIX: show whole screen */
+  object-fit: contain;
   object-position: center;
-  background: rgba(255,255,255,.12);
+  background: rgba(255,255,255,.08);
 }
 
 .car-slide figcaption{
@@ -364,7 +366,7 @@ h2{
   font-size: 13px;
 }
 
-/* ✅ BOTH BUTTONS (always visible) */
+/* ✅ arrows */
 .car-btn{
   position:absolute;
   top: 50%;
@@ -383,15 +385,15 @@ h2{
   box-shadow: 0 12px 35px rgba(0,0,0,.10);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  z-index: 10;                       /* ensures not hidden */
+  z-index: 999;
 }
-
 .car-btn:hover{ transform: translateY(-50%) scale(1.03); }
 .car-btn:active{ transform: translateY(-50%) scale(0.98); }
 
 .car-prev{ left: 14px; }
 .car-next{ right: 14px; }
 
+/* dots */
 .car-dots{
   display:flex;
   justify-content:center;
@@ -437,38 +439,11 @@ h2{
   .grid3{ grid-template-columns: 1fr; }
   body{ background-attachment: scroll; }
 
-  /* buttons tuck in nicely on mobile */
-  .car-viewport{ padding: 12px 54px; }
+  .car-viewport{
+    padding: 12px 54px;
+    scroll-padding-left: 54px;
+    scroll-padding-right: 54px;
+  }
   .car-prev{ left: 10px; }
   .car-next{ right: 10px; }
 }
-
-/* ===== FORCE carousel fixes (override anything above) ===== */
-.carousel{ position: relative !important; }
-
-.carousel .car-viewport{
-  padding: 14px 64px !important;   /* space for both buttons */
-}
-
-.carousel .img-frame{
-  aspect-ratio: 16 / 9 !important; /* better for UI screens */
-  position: relative !important;
-}
-
-.carousel .img-frame img{
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;  /* ✅ shows FULL image */
-  object-position: center !important;
-  background: rgba(255,255,255,.12) !important;
-}
-
-/* ✅ ensure BOTH buttons show */
-.carousel .car-btn{
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  z-index: 999 !important;         /* always on top */
-}
-
-.carousel .car-prev{ left: 14px !important; }
-.carousel .car-next{ right: 14px !important; }

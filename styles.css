@@ -1,3 +1,8 @@
+/* =========================================================
+   ApplyWise Case Study — Styles (refactored)
+   ========================================================= */
+
+/* ---------- TOKENS ---------- */
 :root{
   --text: rgba(20,22,26,.92);
   --muted: rgba(20,22,26,.72);
@@ -13,6 +18,7 @@
   --max: 1080px;
 }
 
+/* ---------- BASE ---------- */
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 
@@ -21,13 +27,11 @@ html{
   scroll-padding-top: 84px;
 }
 
-.section{ scroll-margin-top: 92px; }
-
 body{
   margin:0;
+  min-height:100vh;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   color: var(--text);
-  min-height:100vh;
 
   background:
     radial-gradient(1200px 900px at 22% 24%, rgba(131,153,162,.50), rgba(0,0,0,0) 62%),
@@ -41,12 +45,17 @@ body{
 
 a{ color:inherit; text-decoration:none; }
 img{ max-width:100%; display:block; }
+.section{ scroll-margin-top: 92px; }
 
+/* ---------- ACCESSIBILITY ---------- */
 .skip{
-  position:absolute; left:-9999px; top:auto;
+  position:absolute;
+  left:-9999px;
+  top:auto;
 }
 .skip:focus{
-  left:16px; top:16px;
+  left:16px;
+  top:16px;
   background: rgba(255,255,255,.9);
   color: rgba(20,22,26,.92);
   padding:10px 12px;
@@ -54,7 +63,29 @@ img{ max-width:100%; display:block; }
   border: 1px solid rgba(0,0,0,.08);
 }
 
-/* NAV */
+/* ---------- LAYOUT ---------- */
+.container{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.grid2{
+  margin-top: 16px;
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.grid3{
+  margin-top: 16px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+}
+
+/* ---------- NAV ---------- */
 .nav{
   position:sticky;
   top:0;
@@ -68,10 +99,10 @@ img{ max-width:100%; display:block; }
 .nav-inner{
   max-width: var(--max);
   margin: 0 auto;
+  padding: 14px 16px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding: 14px 16px;
   gap: 14px;
 }
 
@@ -95,12 +126,12 @@ img{ max-width:100%; display:block; }
   border-radius: 999px;
   transition: background .2s ease, color .2s ease, transform .2s ease;
 }
+
 .nav-links a:hover{
   background: rgba(255,255,255,.30);
   color: rgba(20,22,26,.92);
 }
 
-/* Active nav link */
 .nav-links a.is-active{
   background: rgba(255,255,255,.38);
   border: 1px solid rgba(255,255,255,.55);
@@ -109,15 +140,8 @@ img{ max-width:100%; display:block; }
 
 .nav-cta{ display:flex; gap: 10px; flex-wrap: wrap; }
 
-/* PAGE */
-.container{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-/* HERO */
-.hero{ padding: 26px 0 0; background: transparent; }
+/* ---------- HERO ---------- */
+.hero{ padding: 26px 0 0; }
 
 .kicker{
   display:inline-block;
@@ -172,7 +196,7 @@ h1{
 
 .hero-cta{ margin-top: 16px; display:flex; gap: 10px; flex-wrap:wrap; }
 
-/* BUTTONS */
+/* ---------- BUTTONS ---------- */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -186,6 +210,7 @@ h1{
   font-size: 14px;
   transition: transform .2s ease, background .2s ease;
 }
+
 .btn:hover{ transform: translateY(-1px); }
 .btn:active{ transform: translateY(0px); }
 
@@ -194,17 +219,15 @@ h1{
   border-color: rgba(255,255,255,.52);
 }
 
-/* SECTIONS */
+/* ---------- SECTIONS ---------- */
 .section{
   position: relative;
   padding: 76px 0;
   background: transparent;
 }
 
-/* soft glass wash */
 .section.alt{ background: rgba(255,255,255,.06); }
 
-/* smooth blend (no harsh lines) */
 .section.alt::before,
 .section.alt::after{
   content:"";
@@ -213,10 +236,12 @@ h1{
   height: 90px;
   pointer-events:none;
 }
+
 .section.alt::before{
   top:-90px;
   background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.06));
 }
+
 .section.alt::after{
   bottom:-90px;
   background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,.06));
@@ -235,23 +260,7 @@ h2{
   line-height: 1.6;
 }
 
-/* GRIDS */
-.grid2{
-  margin-top: 16px;
-  display:grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 14px;
-  align-items: start;
-}
-
-.grid3{
-  margin-top: 16px;
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 14px;
-}
-
-/* CARDS */
+/* ---------- CARDS ---------- */
 .card{
   background: var(--glass);
   border: 1px solid rgba(255,255,255,.58);
@@ -268,7 +277,7 @@ h2{
 .list{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.7; }
 .list li{ margin: 6px 0; }
 
-/* FIGURE (diagram) */
+/* ---------- FIGURE (diagram) ---------- */
 .figure{
   margin: 18px 0 22px;
   background: rgba(255,255,255,.30);
@@ -294,13 +303,10 @@ h2{
   margin-top: 10px;
 }
 
-/* =========================
-   ✅ CAROUSEL
-   ========================= */
-.carousel{
-  position: relative;
-  margin-top: 14px;
-}
+/* =========================================================
+   CAROUSEL
+   ========================================================= */
+.carousel{ position: relative; margin-top: 14px; }
 
 .car-viewport{
   display:flex;
@@ -319,32 +325,33 @@ h2{
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* each slide is full width */
+/* ✅ hide scrollbar (so it looks like a real carousel) */
+.car-viewport{ scrollbar-width: none; }
+.car-viewport::-webkit-scrollbar{ display: none; }
+
 .car-slide{
   flex: 0 0 100%;
   scroll-snap-align: start;
   margin: 0;
 }
 
-/* ✅ image card frame (forces image to FIT the card) */
+/* ✅ FIT THE CARD */
 .img-frame{
   width: 100%;
-  aspect-ratio: 16 / 10;          /* keeps everything consistent */
+  aspect-ratio: 16 / 10;
   border-radius: 18px;
   overflow: hidden;
   background: rgba(255,255,255,.22);
   border: 1px solid rgba(255,255,255,.55);
 }
 
-/* ✅ this is the key fix: image fills the frame */
 .img-frame img{
   width: 100%;
   height: 100%;
-  object-fit: cover;               /* fill the card */
+  object-fit: cover;
   object-position: center;
 }
 
-/* captions */
 .car-slide figcaption{
   margin-top: 10px;
   padding: 0 6px 4px;
@@ -352,7 +359,6 @@ h2{
   font-size: 13px;
 }
 
-/* arrows */
 .car-btn{
   position:absolute;
   top: 50%;
@@ -376,10 +382,9 @@ h2{
 .car-btn:hover{ transform: translateY(-60%) scale(1.03); }
 .car-btn:active{ transform: translateY(-60%) scale(0.98); }
 
-.car-prev{ left: -8px; }
-.car-next{ right: -8px; }
+.car-prev{ left: 6px; }
+.car-next{ right: 6px; }
 
-/* dots */
 .car-dots{
   display:flex;
   justify-content:center;
@@ -402,8 +407,8 @@ h2{
   border-color: rgba(20,22,26,.25);
 }
 
-/* FOOTER */
-.footer{ padding: 28px 0; margin-top: 24px; background: transparent; }
+/* ---------- FOOTER ---------- */
+.footer{ padding: 28px 0; margin-top: 24px; }
 
 .foot{
   max-width: var(--max);
@@ -418,14 +423,10 @@ h2{
 
 .muted{ color: rgba(20,22,26,.55); }
 
-/* RESPONSIVE */
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px){
   h1{ font-size: 44px; }
   .grid2{ grid-template-columns: 1fr; }
   .grid3{ grid-template-columns: 1fr; }
   body{ background-attachment: scroll; }
-
-  /* arrows tuck in on mobile */
-  .car-prev{ left: 6px; }
-  .car-next{ right: 6px; }
 }

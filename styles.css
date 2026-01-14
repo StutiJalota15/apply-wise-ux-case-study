@@ -304,7 +304,7 @@ h2{
 }
 
 /* =========================================================
-   CAROUSEL (FULL image visible + arrows both sides)
+   CAROUSEL — FULL IMAGE (no cropping)
    ========================================================= */
 .carousel{ position: relative; margin-top: 14px; }
 
@@ -317,7 +317,7 @@ h2{
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 
-  /* ✅ space for arrows */
+  /* space for arrows */
   padding: 14px 64px;
 
   border-radius: 22px;
@@ -338,27 +338,31 @@ h2{
   margin: 0;
 }
 
-/* ✅ frame */
+/* ✅ IMPORTANT: no fixed aspect-ratio (this caused cropping) */
 .img-frame{
   width: 100%;
-  aspect-ratio: 16 / 9;
   border-radius: 18px;
-  overflow: hidden;
   background: rgba(255,255,255,.18);
   border: 1px solid rgba(255,255,255,.55);
-  display:grid;
-  place-items:center;
+  padding: 10px;
+
+  /* keeps rounded look but doesn’t crop the image */
+  overflow: hidden;
 }
 
-/* ✅ FULL image visible (no crop) */
+/* ✅ FULL image always */
 .img-frame img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
+  width: 100% !important;
+  height: auto !important;          /* let image keep its natural ratio */
+  max-height: 72vh;                 /* prevents it from becoming too tall */
+  object-fit: contain !important;   /* no crop */
+  object-position: center !important;
   background: rgba(255,255,255,.08);
+  border-radius: 14px;
+  display:block;
 }
 
+/* caption */
 .car-slide figcaption{
   margin-top: 10px;
   padding: 0 6px 4px;
@@ -366,7 +370,7 @@ h2{
   font-size: 13px;
 }
 
-/* ✅ arrows */
+/* arrows */
 .car-btn{
   position:absolute;
   top: 50%;
@@ -416,29 +420,8 @@ h2{
   border-color: rgba(20,22,26,.25);
 }
 
-/* ---------- FOOTER ---------- */
-.footer{ padding: 28px 0; margin-top: 24px; }
-
-.foot{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 16px;
-  display:flex;
-  justify-content: space-between;
-  gap: 10px;
-  color: rgba(20,22,26,.62);
-  font-size: 13px;
-}
-
-.muted{ color: rgba(20,22,26,.55); }
-
-/* ---------- RESPONSIVE ---------- */
+/* responsive */
 @media (max-width: 900px){
-  h1{ font-size: 44px; }
-  .grid2{ grid-template-columns: 1fr; }
-  .grid3{ grid-template-columns: 1fr; }
-  body{ background-attachment: scroll; }
-
   .car-viewport{
     padding: 12px 54px;
     scroll-padding-left: 54px;
@@ -446,4 +429,7 @@ h2{
   }
   .car-prev{ left: 10px; }
   .car-next{ right: 10px; }
+
+  .img-frame img{ max-height: 62vh; }
 }
+

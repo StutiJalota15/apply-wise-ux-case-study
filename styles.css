@@ -442,3 +442,33 @@ h2{
   .car-prev{ left: 10px; }
   .car-next{ right: 10px; }
 }
+
+/* ===== FORCE carousel fixes (override anything above) ===== */
+.carousel{ position: relative !important; }
+
+.carousel .car-viewport{
+  padding: 14px 64px !important;   /* space for both buttons */
+}
+
+.carousel .img-frame{
+  aspect-ratio: 16 / 9 !important; /* better for UI screens */
+  position: relative !important;
+}
+
+.carousel .img-frame img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;  /* ✅ shows FULL image */
+  object-position: center !important;
+  background: rgba(255,255,255,.12) !important;
+}
+
+/* ✅ ensure BOTH buttons show */
+.carousel .car-btn{
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 999 !important;         /* always on top */
+}
+
+.carousel .car-prev{ left: 14px !important; }
+.carousel .car-next{ right: 14px !important; }
